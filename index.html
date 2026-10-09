@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Special One ✨</title>
+    <!-- Google Fonts: Playfair Display & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #f3f4f6;
+            padding: 20px;
+        }
+
+        /* Container Kartu Mewah */
+        .card {
+            position: relative;
+            background: rgba(18, 24, 38, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+                        0 0 30px rgba(212, 175, 55, 0.1);
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            z-index: 2;
+        }
+
+        /* Dekorasi Bingkai Emas Tipis di Dalam */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px dashed rgba(212, 175, 55, 0.2);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+
+        /* Animasi Masuk */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Crown / Ikon Mewah di Atas */
+        .icon-header {
+            font-size: 40px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Judul Emas */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 20%, #d4af37 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* Pesan Manis */
+        .message {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .message span {
+            color: #f3e5ab;
+            font-weight: 500;
+        }
+
+        /* Bagian Love You */
+        .love-section {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #ff6b81;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 107, 129, 0.3);
+        }
+
+        /* Tombol Pilihan */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .btn-suka {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #d4af37;
+        }
+
+        .btn-suka:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .btn-sangat {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #0b0f19;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-sangat:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Pesan Respon Interaktif */
+        #response-msg {
+            font-size: 0.9rem;
+            color: #d4af37;
+            min-height: 25px;
+            font-weight: 400;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #response-msg.show {
+            opacity: 1;
+        }
+
+        /* Efek Partikel Latar Belakang Sederhana */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #d4af37;
+            border-radius: 50%;
+            animation: sparkleAnim 4s infinite linear;
+            opacity: 0;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Partikel Latar Belakang -->
+    <div id="particles"></div>
+
+    <div class="card">
+        <div class="icon-header">✨🎂✨</div>
+        <h1>Happy Birthday</h1>
+        <div class="subtitle">To My Most Precious One</div>
+        
+        <div class="message">
+            Semoga hari spesial ini membawa kebahagiaan tak bertepi, kesehatan yang baik, dan semua impian indahmu perlahan menjadi nyata. <span>Terima kasih telah menjadi bagian terindah dalam hidupku</span> dan selalu menghadirkan senyum di setiap hariku.
+        </div>
+
+        <div class="love-section">
+            "I love you more than words can say. ❤️"
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-suka" onclick="handleResponse('suka')">Suka 🤍</button>
+            <button class="btn btn-sangat" onclick="handleResponse('sangat')">Suka Banget ✨</button>
+        </div>
+
+        <div id="response-msg"></div>
+    </div>
+
+    <script>
+        // Fungsi untuk merespon klik tombol
+        function handleResponse(type) {
+            const msgEl = document.getElementById('response-msg');
+            msgEl.classList.remove('show');
+            
+            setTimeout(() => {
+                if (type === 'suka') {
+                    msgEl.innerHTML = "Makasih ya! Senang deh kamu suka kadonya 😊🤍";
+                } else {
+                    msgEl.innerHTML = "Yeay! Aku jauh lebih sayang sama kamu! 🥰✨💖";
+                }
+                msgEl.classList.add('show');
+            }, 150);
+        }
+
+        // Membuat efek partikel emas melayang di latar belakang
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 20;
+
+        for (let i = 0; i < particleCount; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = `${Math.random() * 100}vw`;
+            sparkle.style.top = `${Math.random() * 100}vh`;
+            sparkle.style.animationDuration = `${3 + Math.random() * 4}s`;
+            sparkle.style.animationDelay = `${Math.random() * 5}s`;
+            particlesContainer.appendChild(sparkle);
+        }
+    </script>
+</body>
+</html>
